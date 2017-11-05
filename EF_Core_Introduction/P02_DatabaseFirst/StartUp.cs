@@ -17,7 +17,7 @@
                 //EmployeeFullInfo(context);
                 //EmplNameWithSalary(context);
                 //EmplFromDepartment(context);
-                // AddNewAddressUpdateDB(context);
+                // AddNewAddressUpdatecontext(context);
                 // EmployeesAndProjects(context);
                 // AddressesByTown(context);
                 //Employee147Info(context);
@@ -25,27 +25,56 @@
                 //Find10latestProjects(context);
                 //IncreaseSalary(context);
                 //EmployeesFirstNameWithSA(context);
+                //DeleteProjectById(context);
 
-                var project = context.Projects
-                    .Include(p => p.EmployeesProjects)
-                    .First(p => p.ProjectId == 2);
+                var townName = Console.ReadLine();
+                var town = context.Towns.FirstOrDefault(t => t.Name == townName);
 
-                var employeesProject = project.EmployeesProjects;
-                foreach (var empl in employeesProject)
+                if (town == null)
                 {
-                    //to do
+                    Console.WriteLine("There isn't a town with that name in database");
                 }
-                context.SaveChanges();
+                else
+                {
+                    var AddressIds = context.Addresses
+                        .Where(a => a.TownId == town.TownId).ToList().Select(a => a.AddressId).ToList();
+
+                    var employeeWithAdress = context.Employees
+                        .Where(e => AddressIds.Contains((int) e.AddressId)).ToList();
+
+                    foreach (var emp in employeeWithAdress)
+                    {
+                        emp.AddressId = null;
+                    }
+
+                    foreach (var AddressId in AddressIds)
+                    {
+                        context.Addresses.Remove(context.Addresses.FirstOrDefault(a => a.AddressId == AddressId));
+                    }
+
+                    Console.WriteLine($"{AddressIds.Count} addresses in {townName} were deleted");
+
+                    context.Towns.Remove(town);
+
+                    context.SaveChanges();
+
+                }
+
             }
+        }
 
-            var projectsName = context.Projects
-                .Select(p => p.Name).Take(10).ToList();
+        private static void DeleteProjectById(SoftUniContext context)
+        {
+            var project = context.Projects.Find(2);
+            var removed = context.EmployeesProjects.Where(e => e.ProjectId == 2).ToList();
 
-            foreach (var name in projectsName)
-            {
-                Console.WriteLine(name);
-            }
+            context.EmployeesProjects.RemoveRange(removed);
+            context.SaveChanges();
 
+            context.Projects.Remove(project);
+            context.SaveChanges();
+
+            context.Projects.Take(10).ToList().ForEach(p => Console.WriteLine(p.Name));
         }
 
         private static void EmployeesFirstNameWithSA(SoftUniContext context)
@@ -193,7 +222,7 @@
             }
         }
 
-        private static void AddNewAddressUpdateDB(SoftUniContext context)
+        private static void AddNewAddressUpdatecontext(SoftUniContext context)
         {
             var address = new Address();
             address.AddressText = "Vitoshka 15";

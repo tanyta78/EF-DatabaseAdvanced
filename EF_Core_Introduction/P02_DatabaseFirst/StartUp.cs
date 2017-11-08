@@ -21,44 +21,48 @@
                 // EmployeesAndProjects(context);
                 // AddressesByTown(context);
                 //Employee147Info(context);
-                //DepWithMore5Empl(context);
+                DepWithMore5Empl(context);
                 //Find10latestProjects(context);
                 //IncreaseSalary(context);
                 //EmployeesFirstNameWithSA(context);
                 //DeleteProjectById(context);
+                //DeleteTownWithId(context);
 
-                var townName = Console.ReadLine();
-                var town = context.Towns.FirstOrDefault(t => t.Name == townName);
+            }
+        }
 
-                if (town == null)
+        private static void DeleteTownWithId(SoftUniContext context)
+        {
+            var townName = Console.ReadLine();
+            var town = context.Towns.FirstOrDefault(t => t.Name == townName);
+
+            if (town == null)
+            {
+                Console.WriteLine("There isn't a town with that name in database");
+            }
+            else
+            {
+                var AddressIds = context.Addresses
+                    .Where(a => a.TownId == town.TownId).ToList().Select(a => a.AddressId).ToList();
+
+                var employeeWithAdress = context.Employees
+                    .Where(e => AddressIds.Contains((int)e.AddressId)).ToList();
+
+                foreach (var emp in employeeWithAdress)
                 {
-                    Console.WriteLine("There isn't a town with that name in database");
+                    emp.AddressId = null;
                 }
-                else
+
+                foreach (var AddressId in AddressIds)
                 {
-                    var AddressIds = context.Addresses
-                        .Where(a => a.TownId == town.TownId).ToList().Select(a => a.AddressId).ToList();
-
-                    var employeeWithAdress = context.Employees
-                        .Where(e => AddressIds.Contains((int) e.AddressId)).ToList();
-
-                    foreach (var emp in employeeWithAdress)
-                    {
-                        emp.AddressId = null;
-                    }
-
-                    foreach (var AddressId in AddressIds)
-                    {
-                        context.Addresses.Remove(context.Addresses.FirstOrDefault(a => a.AddressId == AddressId));
-                    }
-
-                    Console.WriteLine($"{AddressIds.Count} addresses in {townName} were deleted");
-
-                    context.Towns.Remove(town);
-
-                    context.SaveChanges();
-
+                    context.Addresses.Remove(context.Addresses.FirstOrDefault(a => a.AddressId == AddressId));
                 }
+
+                Console.WriteLine($"{AddressIds.Count} addresses in {townName} were deleted");
+
+                context.Towns.Remove(town);
+
+                context.SaveChanges();
 
             }
         }
@@ -131,6 +135,7 @@
             var departmentsSelected = context.Departments
                 .Where(d => d.Employees.Count > 5)
                 .OrderBy(d => d.Employees.Count)
+                .ThenBy(d=>d.Name)
                 .Include(d => d.Manager)
                 .Include(d => d.Employees);
 

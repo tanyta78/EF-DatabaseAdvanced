@@ -11,7 +11,7 @@ using System;
 namespace P03_SalesDatabase.Migrations
 {
     [DbContext(typeof(SalesContext))]
-    [Migration("20171108213020_SalesAddDateDefault")]
+    [Migration("20171109114920_SalesAddDateDefault")]
     partial class SalesAddDateDefault
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,11 +46,12 @@ namespace P03_SalesDatabase.Migrations
 
                     b.Property<string>("Description")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("varchar(250)")
-                        .HasDefaultValue("No description");
+                        .HasDefaultValue("No description")
+                        .HasMaxLength(250);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(50)
+                        .IsUnicode(true);
 
                     b.Property<decimal>("Price");
 
@@ -70,7 +71,7 @@ namespace P03_SalesDatabase.Migrations
 
                     b.Property<DateTime>("Date")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValueSql("getdate()");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<int>("ProductId");
 
@@ -105,17 +106,17 @@ namespace P03_SalesDatabase.Migrations
                     b.HasOne("P03_SalesDatabase.Data.Models.Customer", "Customer")
                         .WithMany("Sales")
                         .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("P03_SalesDatabase.Data.Models.Product", "Product")
                         .WithMany("Sales")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("P03_SalesDatabase.Data.Models.Store", "Store")
                         .WithMany("Sales")
                         .HasForeignKey("StoreId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

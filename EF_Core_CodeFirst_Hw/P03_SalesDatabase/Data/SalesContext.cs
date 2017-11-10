@@ -25,10 +25,11 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Product>(ep =>
+            builder.Entity<Product>(pr =>
             {
-                ep.Property(p => p.Name).HasColumnType("nvarchar(50)");
-                ep.Property(p => p.Description).HasColumnType("varchar(250)").HasDefaultValue("No description");
+                pr.Property(p => p.Name).HasMaxLength(50).IsUnicode(true);
+                pr.Property(p => p.Description).HasMaxLength(250).HasDefaultValue("No description");
+                pr.ToTable("Products");
             });
 
             builder.Entity<Customer>(ec =>
@@ -44,8 +45,23 @@
 
             builder.Entity<Sale>(esa =>
             {
-                esa.Property(p => p.Date).HasDefaultValueSql("getdate()");
+                esa.Property(p => p.Date).HasDefaultValueSql("GETDATE()");
             });
+
+            builder.Entity<Sale>()
+                .HasOne(s => s.Product)
+                .WithMany(pr => pr.Sales)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Sale>()
+                .HasOne(s => s.Customer)
+                .WithMany(pr => pr.Sales)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Sale>()
+                .HasOne(s => s.Store)
+                .WithMany(pr => pr.Sales)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

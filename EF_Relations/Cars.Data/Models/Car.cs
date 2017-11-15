@@ -1,12 +1,11 @@
-﻿using System;
-
-namespace Cars.Data.Models
+﻿namespace Cars.Data.Models
 {
+    using System;
     using System.Collections.Generic;
 
     public class Car
     {
-       public int Id { get; set; }
+        public int Id { get; set; }
 
         public int MakeId { get; set; }
 
@@ -20,12 +19,14 @@ namespace Cars.Data.Models
 
         public int Doors { get; set; }
 
+        public Transmission Transmission { get; set; }
+
         public DateTime ProductionYear { get; set; }
 
         public int LicensePlateId { get; set; }
 
         public LicensePlate LicensePlate { get; set; }
 
-        public ICollection<CarDealership> CarDealerships { get; set; }=new List<CarDealership>();
+        public ICollection<CarDealership> CarDealerships { get; set; } = new List<CarDealership>();
     }
 }

@@ -5,20 +5,18 @@
     public class Engine
     {
         public int Id { get; set; }
-        
+
+        public string Make { get; set; }
+
         public double Capacity { get; set; }
 
-        public int MakeId { get; set; }
+        public int Cyllinders { get; set; }
 
-        public Make Make { get; set; }
+        public FuelType FuelType { get; set; }
 
         public int Horsepower { get; set; }
 
-        public FuelType FuelType { get; set; }
-        
-        public Transmission Transmission { get; set; }
-        
-        public ICollection<Car> Cars { get; set; }=new List<Car>();
-        
+        public ICollection<Car> Cars { get; set; } = new List<Car>();
+
     }
 }

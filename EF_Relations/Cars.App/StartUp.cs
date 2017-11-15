@@ -2,8 +2,9 @@
 {
     using System;
     using Data;
+    using Microsoft.EntityFrameworkCore;
 
-    public class Program
+    public class StartUp
     {
        public static void Main(string[] args)
        {
@@ -11,7 +12,7 @@
 
            context.Database.EnsureDeleted();
            
-           context.Database.EnsureCreated();
+           context.Database.Migrate();
            
            Console.WriteLine();
        }

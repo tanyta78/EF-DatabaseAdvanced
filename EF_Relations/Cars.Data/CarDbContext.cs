@@ -24,7 +24,7 @@
         public DbSet<LicensePlate> LicencePlates { get; set; }
         
         public DbSet<Dealership> Dealerships { get; set; }
-
+        
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             if (!builder.IsConfigured)
@@ -36,20 +36,15 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            
+
+            //car
             //one to one
             builder.Entity<Car>()
                 .HasOne(c => c.LicensePlate)
                 .WithOne(lp => lp.Car)
                 .HasForeignKey<LicensePlate>(lp => lp.CarId);
             
-            
-            builder.Entity<Engine>()
-                .HasOne(e=>e.Cars)
-                .WithMany(c=>c.)
-
-            builder.Entity<CarDealership>()
-                .HasKey(cd => new {cd.CarId, cd.DealershipId});
-
             //one to many opt.1
             //builder.Entity<CarDealership>()
             //    .HasOne(cd => cd.Car)
@@ -61,11 +56,29 @@
                 .HasMany(c => c.CarDealerships)
                 .WithOne(cd => cd.Car)
                 .HasForeignKey(cd => cd.CarId);
+            
+            //Engine
+            builder.Entity<Engine>()
+                .HasMany(e => e.Cars)
+                .WithOne(c => c.Engine)
+                .HasForeignKey(c => c.EngineId);
+
+            //cardealership
+            builder.Entity<CarDealership>()
+                .HasKey(cd => new { cd.CarId, cd.DealershipId });
 
             builder.Entity<CarDealership>()
                 .HasOne(cd => cd.Dealership)
                 .WithMany(d => d.CarDealerships)
                 .HasForeignKey(cd => cd.DealershipId);
+
+            ////Make
+            builder.Entity<Car>()
+                .HasOne(c => c.Make)
+                .WithMany(m => m.Cars)
+                .HasForeignKey(c => c.MakeId);
+
+
         }
     }
 }

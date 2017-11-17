@@ -8,6 +8,8 @@
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
+            builder.HasKey(u => u.UserId);
+            
             builder.Property(u => u.FirstName)
                 .HasMaxLength(50)
                 .IsUnicode()
@@ -28,10 +30,10 @@
                 .IsUnicode(false)
                 .IsRequired();
 
-            builder
+           /* builder
                 .HasMany(u => u.PaymentMethods)
                 .WithOne(pm => pm.User)
-                .HasForeignKey(pm => pm.UserId);
+                .HasForeignKey(pm => pm.UserId);*/
         }
     }
 }

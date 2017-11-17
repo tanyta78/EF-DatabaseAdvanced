@@ -8,6 +8,8 @@
     {
         public void Configure(EntityTypeBuilder<BankAccount> builder)
         {
+            builder.HasKey(e => e.BankAccountId);
+            
             builder.Property(b => b.BankName)
                 .HasMaxLength(50)
                 .IsUnicode()
@@ -18,9 +20,11 @@
                 .IsRequired()
                 .IsUnicode(false);
 
-            builder.HasOne(b => b.PaymentMethod)
-                .WithOne(pm => pm.BankAccount)
-                .HasForeignKey<BankAccount>(b => b.PaymentMetodId);
+            builder.Ignore(e => e.PaymentMetodId);
+
+            /*  builder.HasOne(b => b.PaymentMethod)
+                  .WithOne(pm => pm.BankAccount)
+                  .HasForeignKey<BankAccount>(b => b.PaymentMetodId);*/
         }
     }
 }

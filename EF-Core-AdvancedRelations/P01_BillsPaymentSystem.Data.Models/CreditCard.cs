@@ -12,8 +12,8 @@
 
         public decimal MoneyOwed { get; set; }
 
-        public decimal LimitLeft { get; set; }
-
+        public decimal LimitLeft => this.Limit - this.MoneyOwed;
+       
         public int PaymentMetodId { get; set; }
 
         public PaymentMethod PaymentMethod { get; set; }

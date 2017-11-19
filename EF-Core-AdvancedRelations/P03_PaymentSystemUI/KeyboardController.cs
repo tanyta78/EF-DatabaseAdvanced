@@ -156,10 +156,10 @@
                 var cardInfo = context.CreditCards.First(cc => cc.CreditCardId == card.CreditCardId);
 
                 Console.WriteLine($"-- ID:{cardInfo.CreditCardId}");
-                Console.WriteLine($"---Limit: {cardInfo.Limit}");
-                Console.WriteLine($"---Money Owed: {cardInfo.MoneyOwed}");
-                Console.WriteLine($"---Limit left: {cardInfo.LimitLeft}");
-                Console.WriteLine($"---Expiration Date: {cardInfo.ExpirationDate}");
+                Console.WriteLine($"--- Limit: {cardInfo.Limit:f2}");
+                Console.WriteLine($"--- Money Owed: {cardInfo.MoneyOwed:f2}");
+                Console.WriteLine($"--- Limit left: {cardInfo.LimitLeft:f2}");
+                Console.WriteLine($"--- Expiration Date: {cardInfo.ExpirationDate.Year}/{cardInfo.ExpirationDate.Month}");
                 current++;
 
             }
@@ -220,9 +220,9 @@
                 var accInfo = context.BankAccounts.First(ba => ba.BankAccountId == acc.BankAccountId);
                 
                 Console.WriteLine($"-- ID:{accInfo.BankAccountId}");
-                Console.WriteLine($"---Balance: {accInfo.Balance}");
-                Console.WriteLine($"---Bank: {accInfo.BankName}");
-                Console.WriteLine($"---SWIFT: {accInfo.SwiftCode}");
+                Console.WriteLine($"--- Balance: {accInfo.Balance:f2}");
+                Console.WriteLine($"--- Bank: {accInfo.BankName}");
+                Console.WriteLine($"--- SWIFT: {accInfo.SwiftCode}");
                 current++;
                 
             }

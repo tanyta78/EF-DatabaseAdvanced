@@ -17,5 +17,30 @@
         public int PaymentMetodId { get; set; }
 
         public PaymentMethod PaymentMethod { get; set; }
+
+        public void Withdraw(decimal amount)
+        {
+            if (amount > this.LimitLeft)
+            {
+                throw new InvalidOperationException("Insufficient funds!");
+            }
+
+            if (amount <= 0)
+            {
+                throw new InvalidOperationException("Value cannot be zero or negative!");
+            }
+
+            this.MoneyOwed += amount;
+        }
+
+        public void Deposit(decimal amount)
+        {
+            if (amount <= 0)
+            {
+                throw new InvalidOperationException("Value cannot be zero or negative!");
+            }
+
+            this.MoneyOwed -= amount;
+        }
     }
 }

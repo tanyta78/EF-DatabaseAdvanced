@@ -1,10 +1,14 @@
 ﻿namespace P01_BillsPaymentSystem.App
 {
     using System;
+    using System.ComponentModel.Design;
     using Data;
     using Data.DBInitializer;
     using Data.Models;
     using Microsoft.EntityFrameworkCore;
+    using P03_PaymentSystemUI;
+  
+
 
     public class StartUp
     {
@@ -12,14 +16,18 @@
         {
             using (var db = new BillsPaymentSystemContext())
             {
-               
-               DatabaseInitializer.ResetDatabase();
+
+                DatabaseInitializer.ResetDatabase();
                 
-                //db.Database.EnsureDeleted();
-                ////db.Database.EnsureCreated();
-                //db.Database.Migrate();
-                //Seed(db);
+                // try to create UI in P03_PaymentSystemUI
+                // bug found - when enter in list and then return to menu - there is no way to exit the program??? - to do
+
+                ConsoleSetup.SetUp();
+                Menu.Initialize();
+
             }
+
+
         }
 
         private static void Seed(BillsPaymentSystemContext db)

@@ -1,9 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
-using System;
-using System.Collections.Generic;
-
-namespace Forum.Migrations
+﻿namespace Forum.Data.Migrations
 {
     public partial class AddTags : Migration
     {

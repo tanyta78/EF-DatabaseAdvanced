@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="IstagraphFiles\json\output\**" />
+    <Compile Remove="IstagraphFiles\xml\output\**" />
+    <EmbeddedResource Remove="IstagraphFiles\json\output\**" />
+    <EmbeddedResource Remove="IstagraphFiles\xml\output\**" />
+    <None Remove="IstagraphFiles\json\output\**" />
+    <None Remove="IstagraphFiles\xml\output\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Istagraph.Models\Istagraph.Models.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -23,6 +23,10 @@ namespace PhotoShare.Data
         public DbSet<AlbumRole> AlbumRoles { get; set; }
 
         public DbSet<Town> Towns { get; set; }
+		
+		public DbSet<AlbumTag> AlbumTags { get; set; }
+
+        public DbSet<Friendship> Friendships { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

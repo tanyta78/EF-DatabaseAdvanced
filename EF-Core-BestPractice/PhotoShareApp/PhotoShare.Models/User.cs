@@ -33,10 +33,10 @@
 
         public string FullName => $"{this.FirstName} {this.LastName}";
 
-        public int BornTownId { get; set; }
+        public int? BornTownId { get; set; }
         public Town BornTown { get; set; }
 
-        public int CurrentTownId { get; set; }
+        public int? CurrentTownId { get; set; }
         public Town CurrentTown { get; set; }
 
         public DateTime? RegisteredOn { get; set; }

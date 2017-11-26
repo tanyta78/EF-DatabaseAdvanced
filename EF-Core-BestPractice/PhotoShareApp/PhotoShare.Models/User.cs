@@ -47,8 +47,8 @@
         public int? Age { get; set; }
 
         public bool? IsDeleted { get; set; }
-
-        public ICollection<Friendship> FriendsAdded { get; set; }
+        
+     public ICollection<Friendship> FriendsAdded { get; set; }
 
         public ICollection<Friendship> AddedAsFriendBy { get; set; }
 

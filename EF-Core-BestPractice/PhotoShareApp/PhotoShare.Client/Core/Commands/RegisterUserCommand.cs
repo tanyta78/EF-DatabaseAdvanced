@@ -1,54 +1,32 @@
 ﻿namespace PhotoShare.Client.Core.Commands
 {
     using System;
-    using System.Linq;
-    using Models;
-    using Data;
-    using Microsoft.EntityFrameworkCore;
+    using Contracts;
+    using Services.Contracts;
 
-    public class RegisterUserCommand
+    public class RegisterUserCommand :ICommand
     {
-        // RegisterUser <username> <password> <repeat-password> <email>
-        public static string Execute(string[] data)
+        private readonly IUserService userService;
+
+        public RegisterUserCommand(IUserService userService)
         {
-            string username = data[1];
-            string password = data[2];
-            string repeatPassword = data[3];
-            string email = data[4];
+            this.userService = userService;
+        }
 
-            if (password != repeatPassword)
+        // RegisterUser <username> <password> <repeat-password> <email>
+        public string Execute(string command,params string[] data)
+        {
+            if (data.Length != 4)
             {
-                throw new ArgumentException("Passwords do not match!");
+                throw new InvalidOperationException($"Command {data[0]} not valid");
             }
 
-            using (PhotoShareContext db=new PhotoShareContext())
-            {
-                var checkUser = db.Users
-                    .AsNoTracking()
-                    .FirstOrDefault(u => u.Username == username);
-                if (checkUser!=null)
-                {
-                    throw new InvalidOperationException($"Username {username} is already taken!");
-                }
-            }
-            
-            User user = new User
-            {
-                Username = username,
-                Password = password,
-                Email = email,
-                IsDeleted = false,
-                RegisteredOn = DateTime.Now,
-                LastTimeLoggedIn = DateTime.Now
-            };
+            string username = data[0];
+            string password = data[1];
+            string repeatPassword = data[2];
+            string email = data[3];
 
-            using (PhotoShareContext context = new PhotoShareContext())
-            {
-                context.Users.Add(user);
-                context.SaveChanges();
-            }
-
-            return "User " + user.Username + " was registered successfully!";
+            return this.userService.RegisterUser(username, password, repeatPassword, email);
         }
     }
 }

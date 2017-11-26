@@ -1,7 +1,7 @@
 ﻿namespace PhotoShare.Data
 {
-    internal class ServerConfig
+    public class ServerConfig
     {
-        internal static string ConnectionString => "Server=.;Database=PhotoShare;Integrated Security=True;";
+        public static string ConnectionString => "Server=DESKTOP-LAHCAG9\\SQLEXPRESS;Database=PhotoShare;Integrated Security=True;";
     }
 }

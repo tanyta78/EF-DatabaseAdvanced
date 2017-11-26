@@ -3,19 +3,17 @@
     using System;
     using Contracts;
     using Services.Contracts;
-    using Utilities;
 
-    public class AddTagCommand:ICommand
+    public class DeleteUserCommand:ICommand
     {
-        private readonly ITagService tagService;
+        private readonly IUserService userService;
 
-        public AddTagCommand(ITagService tagService)
+        public DeleteUserCommand(IUserService userService)
         {
-            this.tagService = tagService;
+            this.userService = userService;
         }
-
-
-        // AddTag <tag>
+        
+        // DeleteUser <username>
         public string Execute(string command,params string[] data)
         {
             if (data.Length != 1)
@@ -23,9 +21,9 @@
                 throw new InvalidOperationException($"Command {data[0]} not valid");
             }
 
-            string tag = data[0].ValidateOrTransform();
+            string username = data[0];
 
-            return this.tagService.AddTag(tag);
+            return this.userService.DeleteUser(username);
         }
     }
 }

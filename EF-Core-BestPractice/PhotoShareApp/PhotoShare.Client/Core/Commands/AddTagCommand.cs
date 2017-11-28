@@ -20,7 +20,7 @@
         {
             if (data.Length != 1)
             {
-                throw new InvalidOperationException($"Command {data[0]} not valid");
+                throw new InvalidOperationException($"Command {command} not valid");
             }
 
             string tag = data[0].ValidateOrTransform();

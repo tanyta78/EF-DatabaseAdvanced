@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusTicketSystem.Data\BusTicketSystem.Data.csproj" />
+    <ProjectReference Include="..\BusTicketSystem.Models\BusTicketSystem.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Generator\" />
+  </ItemGroup>
+
+</Project>

@@ -88,10 +88,10 @@
             var sub = this.db.Employees
                 .Where(e => e.ManagerId == employeeId)
                 .ProjectTo<EmployeeDto>()
-                .ToList().Select(e => $"- {e.FirstName} {e.LastName} - ${e.Salary:f2}");
+                .ToList().Select(e => $"- {e.FirstName} {e.LastName} - ${e.Salary:f2}").ToList();
 
            
-            string result = $"{managerDto.FirstName} {managerDto.LastName} | {managerDto.SubordinatesCount}" +
+            string result = $"{managerDto.FirstName} {managerDto.LastName} | {sub.Count}" +
                             Environment.NewLine + string.Join(Environment.NewLine, sub);
 
             return result;

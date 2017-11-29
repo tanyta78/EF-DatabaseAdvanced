@@ -23,8 +23,8 @@
             //context.Database.EnsureDeleted();
             //context.Database.EnsureCreated();
             
-           // this.context.Database.EnsureDeleted();
-           // this.context.Database.Migrate();
+            this.context.Database.EnsureDeleted();
+            this.context.Database.Migrate();
             Seed();
             Console.WriteLine("Successfull creation/migration/seed");
 

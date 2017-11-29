@@ -14,8 +14,10 @@
 
         public string LastName { get; set; }
 
+        public int SubordinatesCount { get; set; }
+
         public ICollection<EmployeeDto> Subordinates { get; set; }
 
-        public int SubordinatesCount { get; set; }
+     
     }
 }

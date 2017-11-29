@@ -34,7 +34,7 @@
                     .WithMany(m => m.Subordinates)
                     .HasForeignKey(d => d.ManagerId);
 
-            });
+                });
 
 
         }

@@ -101,22 +101,13 @@
         {
             DateTime now = DateTime.Today;
           
-
-            var employee = this.db.Employees.Where(e=>e.Birthday.Value.Year<DateTime.Now.Year-age);
-
-            var employeesBefore1990Dto = context.Employees
-                .Where(e => e.Birthday.Year < 1990)
+            var employees = this.db.Employees
+                .Where(e=>e.Birthday.Value.Year<DateTime.Now.Year-age)
                 .OrderByDescending(e => e.Salary)
-                .ProjectTo<EmployeeDTO>();
+                .ProjectTo<EmployeeListDto>()
+                .Select(employee=> $"{employee.FirstName} {employee.LastName} {employee.Salary} - Manager: {employee.ManagerFirstName ?? "[no manager]"}");
 
-            foreach (EmployeeDTO employee in employeesBefore1990Dto)
-            {
-                Console.WriteLine($"{employee.FirstName} {employee.LastName} {employee.Salary} - Manager: {employee.ManagerLastName ?? "[no manager]"}");
-            }
-
-            var emplDto = Mapper.Map<EmployeeDto>(employee);
-
-            return emplDto;
+           return string.Join(Environment.NewLine,employees);
         }
     }
 }

@@ -1,11 +1,12 @@
 ﻿namespace EmployeesDB
 {
     using System;
-    using AutoMapper;
+   using AutoMapper;
     using Employees.App;
     using Employees.App.Core;
     using Employees.Data;
     using Employees.Services;
+    using Employees.Services.Contracts;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
 
@@ -21,6 +22,7 @@
 
         }
 
+       
         private static IServiceProvider ConfigureServices()
         {
             var serviceCollection = new ServiceCollection();
@@ -31,8 +33,9 @@
 
             serviceCollection.AddAutoMapper(cfg=>cfg.AddProfile<MappingProfile>());
             
-            serviceCollection.AddTransient<EmployeeService>(); 
-           
+            serviceCollection.AddTransient<EmployeeService>();
+            serviceCollection.AddTransient<IDatabaseInitializeService,DatabaseInitializeService>();
+
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
             return serviceProvider;

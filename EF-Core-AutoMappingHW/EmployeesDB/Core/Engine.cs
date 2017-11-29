@@ -17,8 +17,8 @@
 
         public void Run()
         {
-         // var databaseInitializeService = this.serviceProvider.GetService<IDatabaseInitializeService>();
-        // databaseInitializeService.DatabaseInitialize();
+          var databaseInitializeService = this.serviceProvider.GetService<IDatabaseInitializeService>();
+         databaseInitializeService.DatabaseInitialize();
 
             while (true)
             {

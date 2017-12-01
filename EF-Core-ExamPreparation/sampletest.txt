@@ -1,0 +1,109 @@
+using System;
+using System.Linq;
+using System.Reflection;
+using System.Collections.Generic;
+
+using Microsoft.EntityFrameworkCore;
+
+using NUnit.Framework;
+using Stations.Data;
+using Stations.Models;
+
+[TestFixture]
+public class Model_000_001
+{
+	private static readonly Assembly CurrentAssembly = typeof(Station).Assembly;
+
+	[Test]
+	public void ValidateModel()
+	{
+		var context = typeof(StationsDbContext);
+
+		var dbSetData = new[]
+		{
+			new DbSetInfo("Stations", "Station", "Id Name Town TripsTo TripsFrom".Split()),
+			new DbSetInfo("Trains", "Train", "Id TrainNumber Type TrainSeats Trips".Split()),
+			new DbSetInfo("SeatingClasses", "SeatingClass", "Id Name Abbreviation".Split()),
+			new DbSetInfo("TrainSeats", "TrainSeat", "Id TrainId Train SeatingClassId SeatingClass Quantity".Split()),
+			new DbSetInfo("Trips", "Trip", "Id OriginStationId OriginStation DestinationStationId DestinationStation DepartureTime ArrivalTime TrainId Train Status TimeDifference".Split()),
+			new DbSetInfo("Tickets", "Ticket", "Id Price SeatingPlace TripId Trip CustomerCardId CustomerCard".Split()),
+			new DbSetInfo("Cards", "CustomerCard", "Id Name Age Type BoughtTickets".Split()),
+		};
+
+		foreach (var dbSetInfo in dbSetData)
+		{
+			ValidateDbSet(context, dbSetInfo.DbSetName, dbSetInfo.EntityName, dbSetInfo.Properties);
+		}
+	}
+
+	private static void ValidateDbSet(Type context, string dbSetName, string modelName, IEnumerable<string> properties)
+	{
+		var expectedDbSetType = GetDbSetType(modelName);
+
+		AssertCollectionIsOfType(context, dbSetName, expectedDbSetType);
+
+		var modelType = GetModelType(modelName);
+
+		foreach (var property in properties)
+		{
+			var propertyType = GetPropertyByName(modelType, property);
+
+			var errorMessage = $"{modelType.Name}.{property} property does not exist!";
+			Assert.IsNotNull(propertyType, errorMessage);
+		}
+	}
+
+	private static PropertyInfo GetPropertyByName(Type type, string propName)
+	{
+		var properties = type.GetProperties();
+
+		var firstOrDefault = properties.FirstOrDefault(p => p.Name == propName);
+		return firstOrDefault;
+	}
+
+	private static void AssertCollectionIsOfType(Type type, string propertyName, Type collectionType)
+	{
+		var property = GetPropertyByName(type, propertyName);
+
+		var errorMessage = string.Format($"{type.Name}.{propertyName} property not found!");
+
+		Assert.IsNotNull(property, errorMessage);
+
+		Assert.That(collectionType.IsAssignableFrom(property.PropertyType));
+	}
+
+	private static Type GetDbSetType(string modelName)
+	{
+		var modelType = GetModelType(modelName);
+
+		var dbSetType = typeof(DbSet<>).MakeGenericType(modelType);
+		return dbSetType;
+	}
+
+	private static Type GetModelType(string modelName)
+	{
+		var modelType = CurrentAssembly
+			.GetTypes()
+			.FirstOrDefault(t => t.Name == modelName);
+
+		Assert.IsNotNull(modelType, $"{modelName} model not found!");
+
+		return modelType;
+	}
+
+	private class DbSetInfo
+	{
+		public DbSetInfo(string dbSetName, string entityName, IEnumerable<string> properties)
+		{
+			this.DbSetName = dbSetName;
+			this.EntityName = entityName;
+			this.Properties = properties;
+		}
+
+		public string DbSetName { get; }
+
+		public string EntityName { get; }
+
+		public IEnumerable<string> Properties { get; }
+	}
+}

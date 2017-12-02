@@ -10,7 +10,7 @@
         {
             builder.ToTable("EventTeams");
             
-            builder.HasAlternateKey(te => new {te.TeamId, te.EventId});
+            builder.HasKey(te => new {te.TeamId, te.EventId});
 
             builder.HasOne(te => te.Team)
                 .WithMany(t => t.ParticipatedEvents)

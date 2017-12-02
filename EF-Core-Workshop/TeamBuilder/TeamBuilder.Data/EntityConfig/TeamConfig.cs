@@ -10,7 +10,7 @@
         {
             builder.HasKey(t => t.Id);
 
-            builder.HasIndex().IsUnique();
+            builder.HasIndex(t=>t.Name).IsUnique();
 
             builder.Property(t => t.Name)
                 .HasMaxLength(25)

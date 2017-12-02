@@ -1,5 +1,6 @@
 ﻿namespace TeamBuilder.Services
 {
+    using System;
     using Contracts;
     using Data;
 
@@ -16,6 +17,7 @@
         {
             db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
+            Console.WriteLine("Database successfully created!");
             //InitialSeed(db);
         }
     }

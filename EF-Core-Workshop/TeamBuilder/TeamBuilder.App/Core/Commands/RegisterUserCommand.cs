@@ -4,6 +4,7 @@
     using System.Linq;
     using Contracts;
     using Models;
+    using Services;
     using Services.Contracts;
     using Utilities;
 
@@ -70,6 +71,12 @@
             if (CommandHelper.IsUserExisting(username))
             {
                 throw new InvalidOperationException(string.Format(Constants.ErrorMessages.UsernameIsTaken, username));
+            }
+            
+            //if currently logged in user
+            if (Session.User!=null)
+            {
+                throw new InvalidOperationException(Constants.ErrorMessages.LogoutFirst);
             }
 
             //to use user services

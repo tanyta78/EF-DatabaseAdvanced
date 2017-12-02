@@ -27,10 +27,11 @@
 
             serviceCollection.AddTransient<IUserService, UserService>();
             serviceCollection.AddTransient<IDatabaseInitializeService, DatabaseInitializeService>();
-            serviceCollection.AddTransient<IReviewService, ReviewService>();
-            serviceCollection.AddTransient<ITicketService, TicketService>();
-            serviceCollection.AddTransient<ITripService, TripService>();
+            //serviceCollection.AddTransient<IReviewService, ReviewService>();
+            //serviceCollection.AddTransient<ITicketService, TicketService>();
+            //serviceCollection.AddTransient<ITripService, TripService>();
 
+           
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
             return serviceProvider;

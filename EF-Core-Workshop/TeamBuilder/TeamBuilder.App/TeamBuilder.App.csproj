@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TeamBuilder.Data\TeamBuilder.Data.csproj" />
+    <ProjectReference Include="..\TeamBuilder.Models\TeamBuilder.Models.csproj" />
     <ProjectReference Include="..\TeamBuilder.Services\TeamBuilder.Services.csproj" />
   </ItemGroup>
 

@@ -8,7 +8,7 @@
     {
         public void Configure(EntityTypeBuilder<UserTeam> builder)
         {
-            builder.HasAlternateKey(ut => new {ut.UserId, ut.TeamId});
+            builder.HasKey(ut => new {ut.UserId, ut.TeamId});
 
             builder.HasOne(ut => ut.User)
                 .WithMany(u => u.Teams)

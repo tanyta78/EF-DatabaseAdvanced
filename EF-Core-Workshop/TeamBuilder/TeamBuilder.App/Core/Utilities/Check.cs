@@ -1,4 +1,4 @@
-﻿namespace TeamBuilder.App.Utilities
+﻿namespace TeamBuilder.App.Core.Utilities
 {
     using System;
 

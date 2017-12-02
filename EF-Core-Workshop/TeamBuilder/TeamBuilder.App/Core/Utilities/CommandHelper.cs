@@ -1,4 +1,4 @@
-﻿namespace TeamBuilder.App.Utilities
+﻿namespace TeamBuilder.App.Core.Utilities
 {
     using System.Linq;
     using Data;
@@ -18,7 +18,7 @@
         {
             using (TeamBuilderContext db = new TeamBuilderContext())
             {
-                return db.Users.Any(t => t.Username == username);
+                return db.Users.Any(t => t.Username == username && t.IsDeleted==false);
             }
         }
 

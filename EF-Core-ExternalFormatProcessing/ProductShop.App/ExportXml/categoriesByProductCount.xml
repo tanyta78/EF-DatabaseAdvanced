@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<categories>
+  <category name="Electronics">
+    <product-count>105</product-count>
+    <average-price>713.95466666666666666666666667</average-price>
+    <total-revenue>74965.24</total-revenue>
+  </category>
+  <category name="Weapons">
+    <product-count>103</product-count>
+    <average-price>807.5281553398058252427184466</average-price>
+    <total-revenue>83175.40</total-revenue>
+  </category>
+  <category name="Garden">
+    <product-count>100</product-count>
+    <average-price>766.7496</average-price>
+    <total-revenue>76674.96</total-revenue>
+  </category>
+  <category name="For Children">
+    <product-count>95</product-count>
+    <average-price>832.5045263157894736842105263</average-price>
+    <total-revenue>79087.93</total-revenue>
+  </category>
+  <category name="Adult">
+    <product-count>71</product-count>
+    <average-price>663.32591549295774647887323944</average-price>
+    <total-revenue>47096.14</total-revenue>
+  </category>
+  <category name="Sports">
+    <product-count>59</product-count>
+    <average-price>878.7422033898305084745762712</average-price>
+    <total-revenue>51845.79</total-revenue>
+  </category>
+  <category name="Drugs">
+    <product-count>41</product-count>
+    <average-price>622.74195121951219512195121951</average-price>
+    <total-revenue>25532.42</total-revenue>
+  </category>
+  <category name="Fashion">
+    <product-count>26</product-count>
+    <average-price>914.6780769230769230769230769</average-price>
+    <total-revenue>23781.63</total-revenue>
+  </category>
+  <category name="Autoparts">
+    <product-count>0</product-count>
+    <average-price>0</average-price>
+    <total-revenue>0</total-revenue>
+  </category>
+  <category name="Business">
+    <product-count>0</product-count>
+    <average-price>0</average-price>
+    <total-revenue>0</total-revenue>
+  </category>
+  <category name="Other">
+    <product-count>0</product-count>
+    <average-price>0</average-price>
+    <total-revenue>0</total-revenue>
+  </category>
+</categories>

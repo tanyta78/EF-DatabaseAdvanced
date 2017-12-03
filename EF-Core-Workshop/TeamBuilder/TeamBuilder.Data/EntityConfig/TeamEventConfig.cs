@@ -12,6 +12,8 @@
             
             builder.HasKey(te => new {te.TeamId, te.EventId});
 
+            builder.HasAlternateKey(te => new {te.TeamId, te.EventId});
+
             builder.HasOne(te => te.Team)
                 .WithMany(t => t.ParticipatedEvents)
                 .HasForeignKey(te => te.TeamId)

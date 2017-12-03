@@ -1,8 +1,11 @@
 ﻿namespace TeamBuilder.App.Core.Utilities
 {
+    using System;
     using System.Linq;
     using Data;
+    using Microsoft.EntityFrameworkCore;
     using Models;
+    using Services;
 
     public class CommandHelper
     {
@@ -10,7 +13,8 @@
         {
             using (TeamBuilderContext db = new TeamBuilderContext())
             {
-                return db.Teams.Any(t => t.Name == teamName);
+                var result= db.Teams.Any(t => t.Name == teamName);
+                return result;
             }
         }
 
@@ -18,15 +22,16 @@
         {
             using (TeamBuilderContext db = new TeamBuilderContext())
             {
-                return db.Users.Any(t => t.Username == username && t.IsDeleted==false);
+                var result=db.Users.Any(t => t.Username == username && t.IsDeleted==false);
+                return result;
             }
         }
 
-        public static bool IsInviteExisting(string teamName, User user)
+        public static bool IsInviteExisting(string teamName, string username)
         {
             using (TeamBuilderContext db = new TeamBuilderContext())
             {
-                return db.Invitations.Any(i => i.Team.Name == teamName && i.InvitedUserId == user.Id && i.IsActive);
+                return db.Invitations.Any(i => i.Team.Name == teamName && i.InvitedUser.Username == username && i.IsActive);
             }
         }
 
@@ -44,8 +49,10 @@
             using (TeamBuilderContext db = new TeamBuilderContext())
             {
                 return db.Teams
+                    .Include(t=>t.Members)
+                    .ThenInclude(m=>m.User)
                     .Single(t => t.Name == teamName)
-                    .Members.Any(m => m.User.Username == username);
+                    .Members.Any(tm => tm.User.Username == username);
 
             }
         }
@@ -66,6 +73,44 @@
                 return db.Events.Any(createdEvent =>
                     createdEvent.Name == eventName &&
                     createdEvent.CreatorId == user.Id);
+            }
+        }
+
+        public static bool IsTeamEventExist(string eventName, string teamName)
+        {
+            using (TeamBuilderContext db = new TeamBuilderContext())
+            {
+                var currentEvent = db.Events
+                    .Include(e => e.ParticipatingTeams)
+                    .ThenInclude(pt => pt.Team)
+                    .OrderByDescending(ev => ev.StartDate)
+                    .FirstOrDefault(ev => ev.Name == eventName);
+                return  currentEvent.ParticipatingTeams.Any(pt => pt.Team.Name == teamName);
+
+            }
+        }
+
+
+        public static bool IsCreatorOrMemberOfTeam(string teamName, User loggedUser)
+        {
+            using (TeamBuilderContext db = new TeamBuilderContext())
+            {
+                return db.Teams
+                    .Include(team => team.Members)
+                    .ThenInclude(ut=>ut.User)
+                    .Any(team => team.Name == teamName &&
+                                 (team.CreatorId == loggedUser.Id || team.Members.Any(member => member.User.Username == loggedUser.Username)));
+                
+            }
+        }
+
+        public static bool IsUserCreatorOfTeam(string teamName, string userName)
+        {
+            using (TeamBuilderContext db = new TeamBuilderContext())
+            {
+                var user = db.Users.FirstOrDefault(u => u.Username == userName);
+                return db.Teams
+                    .Any(t => t.Name == teamName && t.Creator.Id == user.Id);
             }
         }
     }

@@ -47,9 +47,13 @@
             public const string GenderNotValid = "Gender should be either “Male” or “Female”!";
             public const string UsernameIsTaken = "Username {0} is already taken!";
             public const string UserOrPasswordIsInvalid = "Invalid username or password!";
-
+            
+            //Datetime error message
             public const string InvalidDateFormat =
                 "Please insert the dates in format: [dd/MM/yyyy HH:mm]!";
+
+            public const string StartDateAfterEndDate =
+                "Start date should be before end date.";
 
             // Team error messages.
             public const string InvalidAcronym = "Acronym {0} not valid!";

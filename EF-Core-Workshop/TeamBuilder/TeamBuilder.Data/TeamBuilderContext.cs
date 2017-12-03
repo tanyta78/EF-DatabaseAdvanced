@@ -24,6 +24,10 @@
 
         public DbSet<Invitation> Invitations { get; set; }
 
+        public DbSet<TeamEvent> TeamEvents { get; set; }
+
+        public DbSet<UserTeam> UserTeams { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

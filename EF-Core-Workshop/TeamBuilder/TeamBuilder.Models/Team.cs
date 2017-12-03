@@ -2,8 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Reflection.Metadata;
-
+    
     public class Team
     {
         public Team()

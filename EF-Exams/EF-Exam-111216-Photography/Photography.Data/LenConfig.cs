@@ -10,6 +10,11 @@
         {
             builder.HasKey(l => l.Id);
 
+            builder.Property(e => e.FocalLength).IsRequired(false);
+            
+            builder.Property(e => e.MaxAperture).IsRequired(false);
+
+
             builder.HasOne(l => l.Owner)
                 .WithMany(o => o.Lens)
                 .HasForeignKey(l => l.OwnerId)

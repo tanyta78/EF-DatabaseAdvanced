@@ -40,8 +40,9 @@
             modelBuilder.ApplyConfiguration(new LenConfig());
             modelBuilder.ApplyConfiguration(new CameraConfig());
             modelBuilder.ApplyConfiguration(new AccessoryConfig());
-            modelBuilder.ApplyConfiguration(new PhotographerWorkshopsConfig());
+            modelBuilder.ApplyConfiguration(new WorkshopConfig());
             modelBuilder.ApplyConfiguration(new PhotographerConfig());
+            modelBuilder.ApplyConfiguration(new PhotographerWorkshopsConfig());
         }
     }
 }

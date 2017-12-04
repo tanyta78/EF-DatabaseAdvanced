@@ -14,10 +14,10 @@
 
             builder.Property(e => e.LastName).IsRequired();
 
-            builder.Property(e => e.PrimaryCamera)
+            builder.Property(e => e.PrimaryCameraId)
                 .IsRequired();
 
-            builder.Property(e => e.SecondaryCamera).IsRequired();
+            builder.Property(e => e.SecondaryCameraId).IsRequired();
 
             builder.HasOne(e => e.PrimaryCamera)
                 .WithMany(c => c.PrimaryCameraPhotographers)

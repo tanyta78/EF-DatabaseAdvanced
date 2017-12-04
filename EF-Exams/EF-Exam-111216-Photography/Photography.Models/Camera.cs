@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    public abstract class Camera
+    public class Camera
     {
         private int minIso;
         
@@ -19,7 +19,7 @@
 
         public string Model { get; set; }
 
-        public bool IsFullFrame { get; set; }
+        public bool? IsFullFrame { get; set; }
 
         public int MinISO
         {
@@ -35,7 +35,7 @@
             }
         }
 
-        public int MaxISO { get; set; }
+        public int? MaxISO { get; set; }
 
         public ICollection<Photographer> PrimaryCameraPhotographers { get; set; }
 

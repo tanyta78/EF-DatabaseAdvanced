@@ -16,6 +16,10 @@
 
             builder.Property(c => c.MinISO).IsRequired();
 
+            builder.Property(c => c.MaxISO).IsRequired(false);
+
+            builder.Property(c => c.IsFullFrame).IsRequired(false);
+
             builder.HasMany(c => c.PrimaryCameraPhotographers)
                 .WithOne(p => p.PrimaryCamera)
                 .HasForeignKey(p => p.PrimaryCameraId)

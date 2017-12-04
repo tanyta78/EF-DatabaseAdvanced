@@ -11,9 +11,9 @@
         
         public string Make { get; set; }
 
-        public int FocalLength { get; set; }
+        public int? FocalLength { get; set; }
 
-        public float MaxAperture
+        public float? MaxAperture
         {
             get { return this.maxAperture; }
             set
@@ -24,7 +24,7 @@
                     throw new ArgumentOutOfRangeException();
                 }
 
-                this.maxAperture = value;
+                this.maxAperture = (float) value;
             }
         }
 

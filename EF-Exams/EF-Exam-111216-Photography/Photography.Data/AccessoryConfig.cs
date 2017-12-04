@@ -3,7 +3,7 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Models;
-    
+
     internal class AccessoryConfig : IEntityTypeConfiguration<Accessory>
     {
         public void Configure(EntityTypeBuilder<Accessory> builder)
@@ -15,7 +15,7 @@
                 .HasForeignKey(a => a.OwnerId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Property(a => a.Owner).IsRequired(false);
+            builder.Property(a => a.OwnerId).IsRequired(false);
         }
     }
 }

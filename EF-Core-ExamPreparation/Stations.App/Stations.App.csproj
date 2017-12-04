@@ -13,4 +13,8 @@
     <ProjectReference Include="..\Stations.DataProcessor\Stations.DataProcessor.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ImportResults\" />
+  </ItemGroup>
+
 </Project>

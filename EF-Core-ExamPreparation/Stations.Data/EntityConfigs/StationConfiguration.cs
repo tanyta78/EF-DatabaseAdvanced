@@ -31,7 +31,8 @@
                 .WithOne(t => t.DestinationStation)
                 .HasForeignKey(s => s.DestinationStationId)
                 .OnDelete(DeleteBehavior.Restrict);
-                
+
+            
         }
     }
 }

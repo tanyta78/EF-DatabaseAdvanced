@@ -28,9 +28,10 @@ namespace Stations.Data
 
 	    public DbSet<Ticket> Tickets { get; set; }
 
-	    public DbSet<CustomerCard> CustomerCards { get; set; }
-	    
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+	  //  public DbSet<CustomerCard> CustomerCards { get; set; }
+	    public DbSet<CustomerCard> Cards { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			if (!optionsBuilder.IsConfigured)
 			{

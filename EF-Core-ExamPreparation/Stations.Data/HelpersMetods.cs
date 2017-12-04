@@ -1,14 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using Stations.Models;
-using Stations.Data;
-
 namespace Stations.Data
 {
-    
-}public class HelperMethods
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using Models;
+
+    public class HelperMethods
     {
         private readonly StationsDbContext context;
 
@@ -23,13 +21,14 @@ namespace Stations.Data
             this.context.SaveChanges();
         }
 
-        public bool IsEntityValid<T>(T entity) where T : class
-        {
-            return this.context
-                .Entry(entity)
-                .GetValidationResult()
-                .IsValid;
-        }
+        //public bool IsEntityValid<T>(T entity) where T : class
+        //{
+
+        //    //return this.context
+        //    //    .Entry(entity)
+        //    //    .GetValidationResult()
+        //    //    .IsValid;
+        //}
 
         public bool IsEntityExisting<T>(Expression<Func<T, bool>> predicate) where T : class
         {
@@ -55,10 +54,10 @@ namespace Stations.Data
                 seat = seatingClass;
                 isImported = true;
 
-                if (!this.IsEntityValid(seat))
-                {
-                    throw new InvalidOperationException("Seat is not valid!");
-                }
+                //if (!this.IsEntityValid(seat))
+                //{
+                //    throw new InvalidOperationException("Seat is not valid!");
+                //}
 
                 this.context.SeatingClasses.Add(seat);
                 this.context.SaveChanges();
@@ -66,4 +65,5 @@ namespace Stations.Data
 
             return seat;
         }
+    }
 }

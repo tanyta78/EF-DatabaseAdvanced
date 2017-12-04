@@ -48,7 +48,7 @@
                 // QueryCategoriesByProductsCountXml(db);
 
                 // Task 3.4 - Users and Products
-                QueryUsersAndProductsXml(db);
+               // QueryUsersAndProductsXml(db);
             }
 
         }

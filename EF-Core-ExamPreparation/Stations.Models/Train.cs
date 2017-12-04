@@ -13,7 +13,7 @@
 
         public string TrainNumber { get; set; }
 
-        public TrainType Type { get; set; }
+        public TrainType? Type { get; set; }
 
         public ICollection<TrainSeat> TrainSeats { get; set; }
 

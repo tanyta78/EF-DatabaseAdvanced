@@ -17,12 +17,13 @@ namespace Stations.App
 		//	Mapper.Initialize(cfg => cfg.AddProfile<StationsProfile>());
 
 			ImportEntities(context);
-		//	ExportEntities(context);
+		    
+			ExportEntities(context);
 		}
 
-		private static void ImportEntities(StationsDbContext context, string baseDir = @"..\Datasets\")
+		private static void ImportEntities(StationsDbContext context, string baseDir = @"Datasets\")
 		{
-			const string exportDir = "./ImportResults/";
+			const string exportDir = "ImportResults/";
 
 			var stations = DataProcessor.Deserializer.ImportStations(context, File.ReadAllText(baseDir + "stations.json"));
 			PrintAndExportEntityToFile(stations, exportDir + "Stations.txt");
@@ -45,7 +46,7 @@ namespace Stations.App
 
 		private static void ExportEntities(StationsDbContext context)
 		{
-			const string exportDir = "./ImportResults/";
+			const string exportDir = "ImportResults/";
 
 			var jsonOutput = DataProcessor.Serializer.ExportDelayedTrains(context, "01/01/2017");
 			Console.WriteLine(jsonOutput);

@@ -14,7 +14,7 @@
 
         [XmlAttribute("seat")]
         [Required]
-       [RegularExpression("^[A-Z]{2}[0-9]{1,6}?")]
+       [RegularExpression(@"^[A-Z]{2}\d{1,6}$")]
         public string Seat { get; set; }
         
         [Required]

@@ -12,7 +12,8 @@
         }
         public int Id { get; set; }
 
-        [Required,MaxLength(10)]
+        [Required]
+        [MaxLength(10)]
         public string TrainNumber { get; set; }
 
         public TrainType? Type { get; set; }

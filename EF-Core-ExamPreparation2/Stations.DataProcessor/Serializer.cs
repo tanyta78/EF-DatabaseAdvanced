@@ -9,6 +9,7 @@
     using System.Xml.Serialization;
     using Data;
     using Dto;
+    using Dto.Export;
     using Models;
     using Newtonsoft.Json;
     using Formatting = Newtonsoft.Json.Formatting;
@@ -53,7 +54,7 @@
 		        {
 		            Name = c.Name,
 		            Type = c.Type.ToString(),
-		            Tickets = c.BoughtTickets.Select(t => new TicketDto
+		            Tickets = c.BoughtTickets.Select(t => new TicketDto()
 		            {
                         OriginStation = t.Trip.OriginStation.Name,
 		                DestinationStation = t.Trip.DestinationStation.Name,

@@ -204,7 +204,7 @@
                     .All(s =>context.SeatingClasses
                         .Any(sc => sc.Name == s.Name && sc.Abbreviation == s.Abbreviation));
 
-                if (seatingClassesAreValid)
+                if (!seatingClassesAreValid)
                 {
                     result.AppendLine(FailureMessage);
                     continue;
@@ -419,7 +419,7 @@
                 CustomerCard card = null;
                 if (dtoTicket.Card != null)
                 {
-                    card = context.Cards.SingleOrDefault(c => c.Name == card.Name);
+                    card = context.Cards.SingleOrDefault(c => c.Name == dtoTicket.Card.Name);
 
                     if (card == null)
                     {
@@ -434,7 +434,7 @@
 
                 var seatExists = trip.Train.TrainSeats
                     .SingleOrDefault(s =>
-                    s.SeatingClass.Abbreviation == classAbbreviation && s.Quantity <= quantity);
+                    s.SeatingClass.Abbreviation == classAbbreviation && s.Quantity >= quantity);
 
                 if (seatExists == null)
                 {
@@ -454,7 +454,7 @@
                 };
 
                 validTickets.Add(ticket);
-                sb.AppendLine(String.Format($"Ticket from {0} to {1} departing at {2} imported.",
+                sb.AppendLine(String.Format("Ticket from {0} to {1} departing at {2} imported.",
                     trip.OriginStation.Name,
                     trip.DestinationStation.Name,
                     trip.DepartureTime.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture)));

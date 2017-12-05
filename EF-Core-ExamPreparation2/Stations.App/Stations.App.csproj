@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <Folder Include="ImportResults\" />
+    <Folder Include="Datasets\" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace Stations.DataProcessor.Dto
+﻿namespace Stations.DataProcessor.Dto.Export
 {
     using System.Xml.Serialization;
 

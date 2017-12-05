@@ -20,9 +20,9 @@ namespace Stations.App
 			ExportEntities(context);
 		}
 
-		private static void ImportEntities(StationsDbContext context, string baseDir = @"..\Datasets\")
+		private static void ImportEntities(StationsDbContext context, string baseDir = @"Datasets\")
 		{
-			const string exportDir = "./ImportResults/";
+			const string exportDir = "ImportResults/";
 
 			var stations = DataProcessor.Deserializer.ImportStations(context, File.ReadAllText(baseDir + "stations.json"));
 			PrintAndExportEntityToFile(stations, exportDir + "Stations.txt");
@@ -51,7 +51,7 @@ namespace Stations.App
 			Console.WriteLine(jsonOutput);
 			File.WriteAllText(exportDir + "DelayedTrains.json", jsonOutput);
 
-			var xmlOutput = DataProcessor.Serializer.ExportCardsTicket(context, "Elder");
+			var xmlOutput = DataProcessor.Serializer.ExportCardsTicket(context, "Debilitated");
 			Console.WriteLine(xmlOutput);
 			File.WriteAllText(exportDir + "CardsTicket.xml", xmlOutput);
 		}

@@ -7,6 +7,7 @@
     public class TicketCardDto
     {
         [Required]
+        [XmlAttribute("Name")]
         public string Name { get; set; }
     }
 }

@@ -155,8 +155,8 @@ namespace Instagraph.DataProcessor
 
 
                 var isNotNullInput = !String.IsNullOrWhiteSpace(caption) 
-                    || !String.IsNullOrWhiteSpace(username) 
-                    ||!String.IsNullOrWhiteSpace(picturePath);
+                    && !String.IsNullOrWhiteSpace(username) 
+                    && !String.IsNullOrWhiteSpace(picturePath);
 
                 if (!isNotNullInput)
                 {
@@ -208,8 +208,8 @@ namespace Instagraph.DataProcessor
                 string postIdAsString = element.Element("post")?.Attribute("id")?.Value;
                 
                 bool isNotNullInput = !String.IsNullOrWhiteSpace(content)
-                                   || !String.IsNullOrWhiteSpace(username)
-                                   || !String.IsNullOrWhiteSpace(postIdAsString);
+                                   && !String.IsNullOrWhiteSpace(username)
+                                   && !String.IsNullOrWhiteSpace(postIdAsString);
 
                 if (!isNotNullInput)
                 {
@@ -218,6 +218,7 @@ namespace Instagraph.DataProcessor
                 }
 
                 int postId = int.Parse(postIdAsString);
+                
                 var userId = context.Users.FirstOrDefault(u => u.Username == username)?.Id;
                 var postExist = context.Posts.Any(p => p.Id == postId);
 

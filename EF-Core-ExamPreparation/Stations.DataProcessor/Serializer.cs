@@ -29,6 +29,7 @@ namespace Stations.DataProcessor
 		        .ThenByDescending(t => t.MaxDelayedTime)
 		        .ThenBy(t => t.TrainNumber)
 		        .ToList();
+		    
 		    return JsonConvert.SerializeObject(delayedTrips, Formatting.Indented);
 
 		}

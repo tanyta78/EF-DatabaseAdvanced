@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataImport\Photography.Import.csproj" />
     <ProjectReference Include="..\Photography.Data\Photography.Data.csproj" />
     <ProjectReference Include="..\Photography.Models\Photography.Models.csproj" />
   </ItemGroup>

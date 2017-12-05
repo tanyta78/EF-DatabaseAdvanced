@@ -10,7 +10,7 @@
         {
             builder.HasKey(t => t.Id);
 
-            builder.HasIndex(t => t.TrainNumber).IsUnique();
+            builder.HasAlternateKey(t => t.TrainNumber);
 
             builder.Property(t => t.TrainNumber)
                 .HasMaxLength(10)

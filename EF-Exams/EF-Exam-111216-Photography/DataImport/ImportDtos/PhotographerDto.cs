@@ -1,4 +1,4 @@
-﻿namespace Photography.Import.ImportDtos
+﻿namespace Photography.DataProcessor.ImportDtos
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;

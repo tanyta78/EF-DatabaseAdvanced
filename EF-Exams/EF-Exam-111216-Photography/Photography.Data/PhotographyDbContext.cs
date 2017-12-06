@@ -25,7 +25,9 @@
 
         public DbSet<Len> Lens { get; set; }
 
-        public DbSet<Camera> Cameras { get; set; }
+        public DbSet<MirrorlessCamera> MirrorlessCameras { get; set; }
+
+        public DbSet<DSLRCamera> DslrCameras { get; set; }
 
         public DbSet<Accessory> Accessories { get; set; }
 
@@ -38,7 +40,7 @@
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new LenConfig());
-            modelBuilder.ApplyConfiguration(new CameraConfig());
+           // modelBuilder.ApplyConfiguration(new CameraConfig());
             modelBuilder.ApplyConfiguration(new AccessoryConfig());
             modelBuilder.ApplyConfiguration(new WorkshopConfig());
             modelBuilder.ApplyConfiguration(new PhotographerConfig());

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photography.App", "Photography.App\Photography.App.csproj", "{494A6E68-0040-4870-9026-F301ADFCA80A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Photography.App", "Photography.App\Photography.App.csproj", "{494A6E68-0040-4870-9026-F301ADFCA80A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photography.Models", "Photography.Models\Photography.Models.csproj", "{E1C7B90A-694F-4841-9DC7-A08ED80FFB04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Photography.Models", "Photography.Models\Photography.Models.csproj", "{E1C7B90A-694F-4841-9DC7-A08ED80FFB04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photography.Data", "Photography.Data\Photography.Data.csproj", "{159F729E-A90D-4C65-81EC-FD173B8A4299}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Photography.Data", "Photography.Data\Photography.Data.csproj", "{159F729E-A90D-4C65-81EC-FD173B8A4299}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photography.Import", "DataImport\Photography.Import.csproj", "{B1D83D6F-603D-4FBD-9843-1E5FA9369150}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Photography.DataProcessor", "DataImport\Photography.DataProcessor.csproj", "{B1D83D6F-603D-4FBD-9843-1E5FA9369150}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

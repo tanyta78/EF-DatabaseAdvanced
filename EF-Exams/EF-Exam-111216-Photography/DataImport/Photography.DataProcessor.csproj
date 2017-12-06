@@ -1,23 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.2.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataImport\Photography.DataProcessor.csproj" />
     <ProjectReference Include="..\Photography.Data\Photography.Data.csproj" />
     <ProjectReference Include="..\Photography.Models\Photography.Models.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ImportResults\" />
-    <Folder Include="ExportResults\" />
   </ItemGroup>
 
 </Project>

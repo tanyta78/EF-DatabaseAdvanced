@@ -1,6 +1,7 @@
 ﻿namespace Photography.Models
 {
-public class MirrorlessCamera:Camera
+
+    public class MirrorlessCamera:Camera
     {
         public string MaxVideoResolution { get; set; }
 

@@ -1,7 +1,7 @@
 ﻿namespace Photography.App
 {
     using AutoMapper;
-    using Import.ImportDtos;
+    using DataProcessor.ImportDtos;
     using Models;
 
     public class MappingProfile:Profile
@@ -12,6 +12,8 @@
             CreateMap<LenDto, Len>();
             CreateMap<Camera, CameraDto>();
             CreateMap<CameraDto, Camera>();
+            CreateMap<CameraDto, DSLRCamera>();
+            CreateMap<CameraDto, MirrorlessCamera>();
             CreateMap<Photographer, PhotographerDto>();
             CreateMap<PhotographerDto, Photographer>();
         }

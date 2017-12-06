@@ -16,6 +16,8 @@
             CreateMap<CameraDto, MirrorlessCamera>();
             CreateMap<Photographer, PhotographerDto>();
             CreateMap<PhotographerDto, Photographer>();
+            CreateMap<Workshop, WorkshopDto>();
+            CreateMap<Photographer, ParticipantDto>();
         }
     }
 }

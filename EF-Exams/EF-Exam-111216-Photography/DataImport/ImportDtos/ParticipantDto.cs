@@ -1,20 +1,17 @@
 ﻿namespace Photography.DataProcessor.ImportDtos
 {
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Xml.Serialization;
 
-    public class PhotographerDto
+   [XmlType("participant")]
+    public class ParticipantDto
     {
-     
+        [XmlAttribute("first-name")]
         [Required]
         public string FirstName { get; set; }
 
+        [XmlAttribute("last-name")]
         [Required]
         public string LastName { get; set; }
-        
-        [RegularExpression(@"\+\d{1,3}\/\d{8,10}")]
-        public string Phone { get; set; }
-
-        public ICollection<int> Lenses { get; set; }
     }
 }

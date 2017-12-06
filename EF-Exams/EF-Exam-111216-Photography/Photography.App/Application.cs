@@ -12,7 +12,7 @@
         public static void Main(string[] args)
         {
             var context = new PhotographyDbContext();
-            ResetDatabase(context);
+            ResetDatabase(context,true);
 
             Console.WriteLine("Database Reset.");
 
@@ -26,15 +26,15 @@
         {
             const string exportDir = "./ImportResults/";
 
-           /* var lenses = DataProcessor.Deserializer.ImportLenses(context, File.ReadAllText(baseDir + "lenses.json"));
-            PrintAndExportEntityToFile(lenses, exportDir + "Lenses.txt");*/
+            var lenses = DataProcessor.Deserializer.ImportLenses(context, File.ReadAllText(baseDir + "lenses.json"));
+            PrintAndExportEntityToFile(lenses, exportDir + "Lenses.txt");
 
             var cameras = DataProcessor.Deserializer.ImportCameras(context, File.ReadAllText(baseDir + "cameras.json"));
             PrintAndExportEntityToFile(cameras, exportDir + "Cameras.txt");
 
-            return;
             var photographers = DataProcessor.Deserializer.ImportPhotographers(context, File.ReadAllText(baseDir + "photographers.json"));
             PrintAndExportEntityToFile(photographers, exportDir + "Photographers.txt");
+
 
             var accessories = DataProcessor.Deserializer.ImportAccessories(context, File.ReadAllText(baseDir + "accessories.xml"));
             PrintAndExportEntityToFile(accessories, exportDir + "Accessories.txt");

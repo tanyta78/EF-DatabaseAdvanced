@@ -1,4 +1,4 @@
-﻿namespace WeddinsPlanner.DataProcessor.ExportDtos
+﻿namespace WeddinsPlanner.DataProcessor.ImportDtos
 {
     using System.Xml.Serialization;
 

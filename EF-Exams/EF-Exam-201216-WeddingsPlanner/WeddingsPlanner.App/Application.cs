@@ -13,14 +13,14 @@
         public static void Main(string[] args)
         {
             var context = new WeddingsPlannerDbContext();
-           // ResetDatabase(context,true);
-            context.Database.EnsureCreated();
+            ResetDatabase(context,true);
+            //context.Database.EnsureCreated();
             Console.WriteLine("Database Reset.");
 
             Mapper.Initialize(cfg => cfg.AddProfile<MappingProfile>());
 
-           ImportEntities(context);
-           // ExportEntities(context);
+            ImportEntities(context);
+            ExportEntities(context);
         }
 
         private static void ImportEntities(WeddingsPlannerDbContext context, string baseDir = @"Datasets\")
@@ -39,7 +39,7 @@
 
             var venues = Deserializer.ImportVenues(context, File.ReadAllText(baseDir + "venues.xml"));
             PrintAndExportEntityToFile(venues, exportDir + "venues.txt");
-            
+
             var presents = Deserializer.ImportPresents(context, File.ReadAllText(baseDir + "presents.xml"));
             PrintAndExportEntityToFile(presents, exportDir + "presents.txt");
 
@@ -56,12 +56,11 @@
             string jsonOutput2 = Serializer.ExportGuestsLists(context);
             Console.WriteLine(jsonOutput2);
             File.WriteAllText(exportDir + "guests.json", jsonOutput2);
-
-
+            
             string xmlOutput = Serializer.ExportVenuesInSofia(context);
             Console.WriteLine(xmlOutput);
             File.WriteAllText(exportDir + "sofia-venues.xml", xmlOutput);
-
+          
             string xmlOutput2 = Serializer.ExportAgenciesByTown(context);
             Console.WriteLine(xmlOutput2);
             File.WriteAllText(exportDir + "agencies-by-town.xml", xmlOutput2);

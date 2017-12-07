@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-16"?>
+<venues>
+  <venue name="Hartley Brook Church" capacity="100">
+    <weddings-count>5</weddings-count>
+  </venue>
+  <venue name="St Chad" capacity="100">
+    <weddings-count>3</weddings-count>
+  </venue>
+  <venue name="Showthyme Restaurant" capacity="100">
+    <weddings-count>3</weddings-count>
+  </venue>
+  <venue name="Fireworks Restaurant and Bar" capacity="100">
+    <weddings-count>3</weddings-count>
+  </venue>
+  <venue name="Royal Oak" capacity="100">
+    <weddings-count>3</weddings-count>
+  </venue>
+  <venue name="Brimstone Lion" capacity="100">
+    <weddings-count>3</weddings-count>
+  </venue>
+  <venue name="Parlay" capacity="100">
+    <weddings-count>3</weddings-count>
+  </venue>
+  <venue name="Bambino" capacity="100">
+    <weddings-count>3</weddings-count>
+  </venue>
+  <venue name="St John the Evangelist" capacity="100">
+    <weddings-count>3</weddings-count>
+  </venue>
+  <venue name="Abbey" capacity="100">
+    <weddings-count>3</weddings-count>
+  </venue>
+  <venue name="Savanna's" capacity="100">
+    <weddings-count>3</weddings-count>
+  </venue>
+  <venue name="Chettinaad Palace" capacity="100">
+    <weddings-count>3</weddings-count>
+  </venue>
+</venues>

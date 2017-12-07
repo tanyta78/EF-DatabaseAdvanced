@@ -11,7 +11,6 @@
     using System.Xml.Serialization;
     using AutoMapper;
     using Data;
-    using ExportDtos;
     using ImportDtos;
     using Microsoft.EntityFrameworkCore;
     using Models;
@@ -83,8 +82,7 @@
                     continue;
                 }
 
-                Gender gender;
-                bool isGenderValid = Enum.TryParse(personDto.Gender.ToString(), out gender);
+                bool isGenderValid = Enum.TryParse(personDto.Gender.ToString(), out Gender gender);
 
                 if (!isGenderValid)
                 {
@@ -277,9 +275,9 @@
                     continue;
                 }
 
-                var isInvitationExist = context.Invitations.Any(i => i.Id == presentDto.InvitationId);
+                var invitation = context.Invitations.FirstOrDefault(i => i.Id == presentDto.InvitationId);
 
-                if (!isInvitationExist)
+                if (invitation==null)
                 {
                     sb.AppendLine(FailureMessage);
                     continue;
@@ -300,11 +298,12 @@
                     
                     var present = (Cash)Mapper.Map(presentDto, presentDto.GetType(), presentType);
                     validCashPresents.Add(present);
+                    invitation.Present = present;
                 }
 
                 if (presentDto.Type.ToLower() == "gift")
                 {
-                    if (presentDto.PresentName == null)
+                    if (presentDto.Name == null)
                     {
                         sb.AppendLine(FailureMessage);
                         continue;
@@ -325,6 +324,7 @@
                     }
                     var present = (Gift)Mapper.Map(presentDto, presentDto.GetType(), presentType);
                     validGiftPresents.Add(present);
+                    invitation.Present = present;
                 }
 
                 var guestName = context.Invitations

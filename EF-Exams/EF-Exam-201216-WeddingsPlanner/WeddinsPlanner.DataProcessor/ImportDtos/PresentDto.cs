@@ -1,8 +1,7 @@
-﻿namespace WeddinsPlanner.DataProcessor
+﻿namespace WeddinsPlanner.DataProcessor.ImportDtos
 {
     using System.ComponentModel.DataAnnotations;
     using System.Xml.Serialization;
-    using Models.Enums;
 
     [XmlType("present")]
     public class PresentDto
@@ -16,7 +15,7 @@
         public int InvitationId { get; set; }
 
         [XmlAttribute("present-name")]
-        public string PresentName { get; set; }
+        public string Name { get; set; }
 
         [XmlAttribute("size")]
         public string Size { get; set; }

@@ -19,7 +19,7 @@
             Mapper.Initialize(cfg => cfg.AddProfile<MappingProfile>());
 
             ImportEntities(context);
-            //ExportEntities(context);
+            ExportEntities(context);
         }
 
         private static void ImportEntities(PhotographyDbContext context, string baseDir = @"Datasets\")
@@ -54,7 +54,8 @@
 
             string jsonOutput2 = DataProcessor.Serializer.ExportLandscapePhotographers(context);
             Console.WriteLine(jsonOutput2);
-            File.WriteAllText(exportDir + "landscape-photographers.xml", jsonOutput2);
+            File.WriteAllText(exportDir + "landscape-photographers.json", jsonOutput2);
+
 
             string xmlOutput = DataProcessor.Serializer.ExportSameCamerasPhotographers(context);
             Console.WriteLine(xmlOutput);

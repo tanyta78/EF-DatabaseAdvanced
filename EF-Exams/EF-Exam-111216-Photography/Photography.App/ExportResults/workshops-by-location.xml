@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-16"?>
+<locations>
+  <location name="Africa">
+    <workshop name="Morocco Photography Expedition" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+  </location>
+  <location name="Asia">
+    <workshop name="Vietnam and Cambodia: Along the Mekong River" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Trans-Siberian Rail Odyssey" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="India by Rail Photography Expedition" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="China Photography Expedition" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Inside Japan Photography Expedition" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Winter in Japan Photography Expedition" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+  </location>
+  <location name="Caribbean">
+    <workshop name="Advanced Photography and Lighting Workshop: Saint Lucia" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+  </location>
+  <location name="Cuba">
+    <workshop name="Cuba and Its People: A Photographic Exploration" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Cuba by Land and Sea: Cultural Heritage and Natural Wonders" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+  </location>
+  <location name="Europe">
+    <workshop name="Nordic Passages: Shetlands, Orkneys, Faroes, and Iceland" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Norway's Fjords and Arctic Svalbard" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Greek Isles" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Scotland's Highlands and Islands" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Scandinavia by Sea: Denmark, Sweden, and Norway" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Norway's Trains and Fjords" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Swiss Trains and the Italian Lake District" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Photo Workshop: Switzerland" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+  </location>
+  <location name="New York">
+    <workshop name="Photo Workshop: Wyoming's Cowboy Country" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="New York City Weekend Photo Workshop" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+  </location>
+  <location name="North America">
+    <workshop name="Weekend Photo Workshop: Austin" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="San Francisco Weekend Photo Workshop (Advanced)" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Winter in Yellowstone Photography Expedition" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Weekend Photo Workshop: Washington, D.C." total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Alaska Family Voyage" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Alaska's Inside Passage" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Weekend Photo Workshop: New Orleans" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="San Francisco Weekend Photo Workshop" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Canadian Rockies by Rail and Trail" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="New York City Smartphone Photo Workshop" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+  </location>
+  <location name="North Pole">
+    <workshop name="Land of the Polar Bears" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Svalbard, Iceland, and Greenland's East Coast" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Epic 80N" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Exploring Greenland and the Canadian High Arctic" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+  </location>
+  <location name="Rhodopes">
+    <workshop name="Wildlife Birds" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+  </location>
+  <location name="Sofia">
+    <workshop name="Street Photography" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Street Photography Part 2" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Street Photography Part 3" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+  </location>
+  <location name="South America">
+    <workshop name="Epic Galapagos Photography Expedition" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Galapagos Photo Expedition" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Reefs and Ruins: Belize to Tikal, Guatemala" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+    <workshop name="Peru: Amazon, Machu Picchu, and Lake Titicaca" total-profit="0.000">
+      <participants count="0" />
+    </workshop>
+  </location>
+</locations>

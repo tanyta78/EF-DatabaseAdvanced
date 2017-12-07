@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WeddinsPlanner.DataProcessor\WeddinsPlanner.DataProcessor.csproj" />
+    <ProjectReference Include="..\WeddinsPlanner.Data\WeddinsPlanner.Data.csproj" />
+    <ProjectReference Include="..\WeddinsPlanner.Models\WeddinsPlanner.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Datasets\" />
+    <Folder Include="ExportResults\" />
+    <Folder Include="ImportResults\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+  </ItemGroup>
+
+</Project>
